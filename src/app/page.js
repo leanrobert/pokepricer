@@ -1,7 +1,3 @@
-import Image from "next/image"
-import data from "./venusaur"
-import Link from "next/link"
-
 export default async function Home() {
   return (
     <main className='flex flex-col items-center justify-center'>

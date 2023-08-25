@@ -13,8 +13,6 @@ export default function SearchPage({ searchParams }) {
   const [money, setMoney] = useState(0)
   let skip = (page - 1) * 10
 
-  console.log('cards', cards);
-
   return (
     <div className="mt-[72px] w-full max-w-6xl flex flex-col items-center">
       <Form setCards={setCards} setPage={setPage} setMoney={setMoney} setIsLoading={setIsLoading} />
@@ -23,7 +21,7 @@ export default function SearchPage({ searchParams }) {
       !cards || cards?.length === 0 ? (
         <div className="mt-4 text-center">
           <h2 className="text-2xl font-semibold">No results found</h2>
-          <p className="text-gray-400">Try searching for something else</p>
+          <p className="text-zinc-800">Try searching for something else</p>
         </div>
       ): (
         <div className="mt-4 w-full">
