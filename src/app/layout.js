@@ -1,6 +1,8 @@
 import Header from '@/components/header'
 import './globals.css'
 import { Inter } from 'next/font/google'
+import { Suspense } from 'react'
+import Loading from './sets/loading'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -12,9 +14,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} text-zinc-800 bg-gradient-to-b from-white to-amber-50 h-screen flex justify-center`}>
+      <body className={`${inter.className} text-zinc-800 bg-gradient-to-b from-sky-300 to-white h-screen flex justify-center`}>
         <Header />
-        {children}
+        <Suspense fallback={<Loading />}>{children}</Suspense>
       </body>
     </html>
   )

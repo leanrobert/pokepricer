@@ -58,10 +58,10 @@ export const getTableValues = (tcg, card, money) => {
         data.avgcar = card.prices.avg30
       }
 
-      data.lowRec = Number(money.blue.value_sell * data.lowtc + money.blue_euro.value_sell * data.lowcar).toFixed(2)
-      data.midRec = Number(money.blue.value_sell * data.midtc + money.blue_euro.value_sell * data.midcar).toFixed(2)
-      data.highRec = Number(money.blue.value_sell * data.hightc + money.blue_euro.value_sell * data.highcar).toFixed(2)
-      data.avgRec = Number(money.blue.value_sell * data.avgtc + money.blue_euro.value_sell * data.avgcar).toFixed(2)
+      data.lowRec = Number((money.blue.value_sell * data.lowtc + money.blue_euro.value_sell * data.lowcar)/2).toFixed(2)
+      data.midRec = Number((money.blue.value_sell * data.midtc + money.blue_euro.value_sell * data.midcar)/2).toFixed(2)
+      data.highRec = Number((money.blue.value_sell * data.hightc + money.blue_euro.value_sell * data.highcar)/2).toFixed(2)
+      data.avgRec = Number((money.blue.value_sell * data.avgtc + money.blue_euro.value_sell * data.avgcar)/2).toFixed(2)
 
       data.name = price
 
