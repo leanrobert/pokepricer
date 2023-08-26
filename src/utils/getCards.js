@@ -19,7 +19,7 @@ export const getCard = async (id) => {
 }
 
 export const getSets = async () => {
-  const res = await fetch('https://api.pokemontcg.io/v2/sets', {
+  const res = await fetch('https://api.pokemontcg.io/v2/sets?orderBy=-releaseDate', {
     headers: {
       'X-Api-Key': process.env.NEXT_PUBLIC_POKEMONTCG_API_KEY
     }

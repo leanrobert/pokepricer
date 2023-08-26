@@ -40,8 +40,8 @@ export const CardTCGPlayer = ({ tcgplayer, money = null }) => {
   const firstEditionHolofoil = tcgplayer.prices['1stEditionHolofoil']
 
   return (
-    <div className='p-1 px-2 mb-2'>
-      <p className='font-semibold text-center mb-1'>TCG Player</p>
+    <div className='px-2 mb-2'>
+      <p className='font-semibold text-center'>TCG Player</p>
       {!tcgplayer.prices ?
         <p>Not available</p> :
         !money ?
@@ -84,8 +84,8 @@ export const CardCardMarket = ({ cardmarket }) => {
   const { averageSellPrice } = cardmarket.prices
 
   return (
-    <div className='p-1 px-2 mb-2'>
-      <p className='font-semibold text-center mb-1'>Card Market</p>
+    <div className='px-2 mb-2'>
+      <p className='font-semibold text-center'>Card Market</p>
       {!averageSellPrice ?
         <p>Not available</p> :
         <p className='italic'>AVG €<span className='font-semibold'>{Number(averageSellPrice).toFixed(2)}</span></p>

@@ -8,8 +8,8 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
-    <header className='text-zinc-800 fixed w-full max-w-6xl z-50'>
-      <nav className='bg-sky-50 rounded-b-xl border-blue-900 border-t-transparent border-[1px] px-4 lg:px-6 py-2.5'>
+    <header className='text-zinc-800 w-full max-w-6xl z-50'>
+      <nav className='bg-sky-50 rounded-b-xl border-blue-900 border-t-transparent border-[1px] px-4 py-2.5 lg:px-6'>
         <div className='flex flex-wrap justify-between items-center mx-auto max-w-screen-xl'>
           {/* Logo */}
           <Link href='/' className='flex items-center'>
@@ -35,13 +35,7 @@ const Header = () => {
               </li>
               <li>
                 <Link href='/' onClick={() => setIsMenuOpen(false)} className='block py-2 pr-4 pl-3 text-zinc-800 border-b border-stone-300 transition duration-300 ease-in-out hover:bg-blue-900 hover:text-sky-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-amber-500 lg:hover:rounded-xl lg:p-0'>FAQ</Link>
-              </li>
-              <li>
-                <Link href='/' onClick={() => setIsMenuOpen(false)} className='block py-2 pr-4 pl-3 text-zinc-800 border-b border-stone-300 transition duration-300 ease-in-out hover:bg-blue-900 hover:text-sky-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-amber-500 lg:hover:rounded-xl lg:p-0'>pepitoas</Link>
-              </li>
-              <li>
-                <Link href='/' onClick={() => setIsMenuOpen(false)} className='block py-2 pr-4 pl-3 text-zinc-800 border-b border-stone-300 transition duration-300 ease-in-out hover:bg-blue-900 hover:text-sky-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-amber-500 lg:hover:rounded-xl lg:p-0'>pepitod</Link>
-              </li>
+              </li> 
             </ul>
           </div>
         </div>

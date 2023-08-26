@@ -14,9 +14,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} text-zinc-800 bg-gradient-to-b from-sky-300 to-white h-screen flex justify-center`}>
+      <body className={`${inter.className} text-zinc-800 bg-gradient-to-b from-sky-300 to-white h-screen flex flex-col items-center`}>
         <Header />
-        <Suspense fallback={<Loading />}>{children}</Suspense>
+        <Suspense fallback={<Loading />}>
+      		<main className='h-full w-full flex justify-center'>
+            {children}
+          </main>
+        </Suspense>
       </body>
     </html>
   )
