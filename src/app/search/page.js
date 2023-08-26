@@ -9,7 +9,7 @@ import Loading from "./loading";
 export default function SearchPage({ searchParams }) {
   const [isLoading, setIsLoading] = useState(false)
   const [cards, setCards] = useState([])
-  const [page, setPage] = useState(Number(searchParams.page) || 1)
+  const [page, setPage] = useState(searchParams.page ?? 1)
   const [money, setMoney] = useState(0)
   let skip = (page - 1) * 10
 

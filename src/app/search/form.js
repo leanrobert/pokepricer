@@ -11,8 +11,7 @@ const Form = ({ setCards, setPage, setMoney, setIsLoading }) => {
     e.preventDefault()
     setIsLoading(true)
 
-    const res = await getCards(search)
-    const money = await getDolarEuro()
+    const [res, money] = await Promise.all([getCards(search).catch(err => console.error(err)), getDolarEuro()])
     setMoney(money)
 
     if (res) {
@@ -25,8 +24,7 @@ const Form = ({ setCards, setPage, setMoney, setIsLoading }) => {
     }
 
     setPage(1)
-
-    setSearch('')
+    e.target.reset()
     setIsLoading(false)
   }
 

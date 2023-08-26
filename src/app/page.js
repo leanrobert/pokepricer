@@ -15,7 +15,7 @@ export default async function Home() {
       </div>
       <p>Search for any card you want, and compare its price with other pages like</p>
       <div className="flex justify-center gap-5 my-10">
-        <Image className="h-10 w-auto" src='https://mp-assets.tcgplayer.com/img/TCGplayer-logo-primary@2x.png' height={200} width={200} alt='TCG Player' />
+        <Image className="h-10 w-auto" src='/tcgplayer.png' height={200} width={200} alt='TCG Player' />
         <Image className="h-14 w-auto" src='/cardmarket.png' height={200} width={200} alt='Cardmarket' />
       </div>
     </main>

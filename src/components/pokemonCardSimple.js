@@ -12,7 +12,7 @@ const PokemonCardSimple = ({ pokemon, money }) => {
     <div className='rounded-xl bg-sky-50 overflow-hidden border-blue-900 shadow-sm shadow-zinc-800 border max-h-60'>
       <div className='flex w-full'>
         <div className='w-1/2'>
-          <Image className='h-auto w-full' src={pokemon.images.small} height={150} width={150} alt={pokemon.name} />
+          <Image className='h-auto w-full' src={pokemon.images.small} height={150} width={150} alt={pokemon.name} priority />
         </div>
         <div className='w-1/2 flex flex-col items-center justify-center px-2 py-2'>
           <h3 className='text-sm font-semibold text-center'>{pokemon.name} - <span className='text-amber-500'>{pokemon.rarity}</span></h3>
