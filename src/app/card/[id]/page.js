@@ -1,4 +1,5 @@
 import PriceTable from "@/components/priceTable";
+import { getTrollPrice } from "@/utils/getCards";
 import { getDolarEuro } from "@/utils/getDolarEuro";
 import Image from "next/image";
 
@@ -86,7 +87,7 @@ const PokemonCardDetails = ({ card }) => {
             </div>
           ))}
 
-          {card.attacks.map((attack, index) => (
+          {card.attacks?.map((attack, index) => (
             <div className="p-1 w-full" key={index}>
               <div className=" border-[1px] bg-sky-100 px-4 py-2 rounded-lg">
                 <div className="flex justify-between">
@@ -110,7 +111,7 @@ const CardPricesPoke = async ({ card }) => {
     <div className={`lg:w-1/3 flex flex-col justify-center mx-4 border-blue-900 border-[1px] bg-gradient-to-br ${colors[card.types[0] ?? 'default'].textColor} ${card.types.length === 1 ? `${colors[card.types[0]].bgFrom} ${colors[card.types[0]].bgTo}` : `${colors[card.types[0]].bgFrom} ${colors[card.types[1]].bgTo}`} text-zinc-800 rounded-lg p-4`}>
       <h2 className="font-bold text-lg text-center mb-3 text-black">Price Details</h2>
       <div className="bg-sky-50 rounded-xl py-2 px-4 flex flex-wrap justify-center">
-        <PriceTable tcgplayer={card.tcgplayer} cardmarket={card.cardmarket} money={money} />  
+        <PriceTable tcgplayer={card.tcgplayer} cardmarket={card.cardmarket} money={money} card={card} />  
       </div>
     </div>
   )
