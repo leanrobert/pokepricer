@@ -7,7 +7,6 @@ const PriceTable = async ({ tcgplayer, cardmarket, money, card }) => {
 
 	const trollArs = Number(troll * money.blue.value_sell).toFixed(2)
 	const cardArs = Number(data.cardmar * money.blue_euro.value_sell).toFixed(2)
-	const avgArs = (trollArs + cardArs) / 3
 
 	return (
 		<div className='flex flex-col gap-4 py-1'>

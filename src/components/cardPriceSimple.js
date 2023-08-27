@@ -1,3 +1,4 @@
+import { getTrollPrice } from '@/utils/getCards'
 import React from 'react'
 
 const PriceTable = ({ text, prices, money }) => {

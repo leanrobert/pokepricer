@@ -45,8 +45,6 @@ export const getCardsBySet = async (setId) => {
 export const getTrollPrice = async (cardName, cardNum, setNum) => {
 	const url = `https://www.trollandtoad.com/category.php?selected-cat=0&search-words=${reeplaceName(cardName, '+')}`
 
-  console.log(url, cardName);
-
   try {
     const { data } = await axios.get(url)
     const $ = load(data)

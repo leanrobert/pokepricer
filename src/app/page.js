@@ -14,9 +14,17 @@ export default async function Home() {
         </Link>
       </div>
       <p className="text-center">Search for any card you want, and compare its price with other pages like</p>
-      <div className="flex justify-center gap-5 my-10">
-        <Image className="h-10 w-auto" src='/tcgplayer.png' height={200} width={200} alt='TCG Player' />
-        <Image className="h-14 w-auto" src='/cardmarket.png' height={200} width={200} alt='Cardmarket' />
+      <div className="flex flex-wrap justify-center gap-5 my-10">
+        <Link href='https://tcgplayer.com' target="_blank">
+          <Image className="h-10 w-auto" src='/tcgplayer.png' height={200} width={200} alt='TCG Player' />
+        </Link>
+        <Link href='https://cardmarket.com' target="_blank">
+          <Image className="h-14 w-auto" src='/cardmarket.png' height={200} width={200} alt='Cardmarket' />
+        </Link>
+        <Link href='https://trollandtoad.com' target="_blank">
+          <Image className="h-10 w-auto" src='/troll.png' height={200} width={200} alt="Troll and Toad" />
+        </Link>
+
       </div>
     </div>
   )

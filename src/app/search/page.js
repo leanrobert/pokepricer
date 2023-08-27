@@ -34,7 +34,7 @@ export default function SearchPage({ searchParams }) {
               <div className="absolute top-[120px] lg:top-[124px]">
                 <div className="max-w-[1100px] grid px-4 md:grid-cols-2 lg:grid-cols-3 gap-2 lg:px-0">
                   {cards?.slice(skip, skip + 9).map((pokemon) => (
-                    <PokemonCardSimple key={pokemon.id} pokemon={pokemon} money={money} />
+                    <PokemonCardSimple key={pokemon.id} pokemon={pokemon} />
                   ))}
                 </div>
                 <PaginationButtons page={page} setPage={setPage} data={cards} />
