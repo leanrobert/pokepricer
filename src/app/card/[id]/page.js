@@ -1,3 +1,4 @@
+import PokemonImage from "@/components/pokemonImage";
 import PriceTable from "@/components/priceTable";
 import { getTrollPrice } from "@/utils/getCards";
 import { getDolarEuro } from "@/utils/getDolarEuro";
@@ -111,7 +112,7 @@ const CardPricesPoke = async ({ card }) => {
     <div className={`lg:w-1/3 flex flex-col justify-center mx-4 border-blue-900 border-[1px] bg-gradient-to-br ${colors[card.types[0] ?? 'default'].textColor} ${card.types.length === 1 ? `${colors[card.types[0]].bgFrom} ${colors[card.types[0]].bgTo}` : `${colors[card.types[0]].bgFrom} ${colors[card.types[1]].bgTo}`} text-zinc-800 rounded-lg p-4`}>
       <h2 className="font-bold text-lg text-center mb-3 text-black">Price Details</h2>
       <div className="bg-sky-50 rounded-xl py-2 px-4 flex flex-wrap justify-center">
-        <PriceTable tcgplayer={card.tcgplayer} cardmarket={card.cardmarket} money={money} card={card} />  
+        <PriceTable tcgplayer={card.tcgplayer} cardmarket={card.cardmarket} money={money} card={card} />
       </div>
     </div>
   )
@@ -149,7 +150,7 @@ const CardPricesTrainer = async ({ card }) => {
     <div className={`lg:w-1/3 flex flex-col justify-center mx-4 border-blue-900 border-[1px] bg-gradient-to-br from-gray-100 to-gray-400 text-zinc-800 rounded-lg p-4`}>
       <h2 className="font-bold text-lg text-center mb-3 text-black">Price Details</h2>
       <div className="bg-sky-50 rounded-xl py-2 px-4 flex flex-wrap justify-center">
-        <PriceTable tcgplayer={card.tcgplayer} cardmarket={card.cardmarket} money={money} />  
+        <PriceTable tcgplayer={card.tcgplayer} cardmarket={card.cardmarket} money={money} />
       </div>
     </div>
   )
@@ -170,9 +171,9 @@ export default async function Card({ params }) {
       <h1 className="font-bold text-lg text-zinc-800 mb-4">{card.name} - {card.set.name} ({card.set.ptcgoCode})</h1>
       <div className="flex flex-col justify-center items-center gap-4 lg:flex-row mb-4">
           <div className="rounded-xl overflow-hidden flex items-center justify-center lg:w-1/5">
-            <Image priority src={card.images.large} alt={card.name} width={300} height={300} />
+            <PokemonImage image={card.images.small} name={card.name} />
           </div>
-          {card.supertype === "Pokémon" ? 
+          {card.supertype === "Pokémon" ?
             (
               <>
                 <CardPricesPoke card={card} />

@@ -2,6 +2,7 @@ import Image from 'next/image'
 import React from 'react'
 import CardPriceSimple from './cardPriceSimple'
 import Link from 'next/link'
+import PokemonImage from './pokemonImage'
 
 const PokemonCardSimple = ({ pokemon }) => {
   if (!pokemon.cardmarket && !pokemon.tcgplayer) {
@@ -11,7 +12,7 @@ const PokemonCardSimple = ({ pokemon }) => {
   return (
     <div className='h-60 rounded-xl bg-sky-50 overflow-hidden border-blue-900 shadow-sm shadow-zinc-800 border max-h-60 flex'>
         <div className='w-1/2 h-full'>
-          <Image className='h-full w-full' src={pokemon.images.small} height={150} width={150} alt={pokemon.name} priority />
+          <PokemonImage image={pokemon.images.small} name={pokemon.name} />
         </div>
         <div className='w-1/2 flex flex-col items-center justify-around px-2 py-2'>
           <h3 className='text-lg font-semibold text-center leading-4'>{pokemon.name}</h3>
