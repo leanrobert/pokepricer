@@ -5,6 +5,7 @@ import { getCardsBySet } from "@/utils/getCards"
 import { getDolarEuro } from "@/utils/getDolarEuro"
 import Link from "next/link"
 import { useEffect, useState } from "react"
+import Loading from "./loading"
 
 export default function Card({ params, searchParams }) {
 	const [cards, setCards] = useState([])
@@ -24,7 +25,7 @@ export default function Card({ params, searchParams }) {
     <div className="flex flex-col items-center justify-center max-w-4xl">
 			<div className="absolute top-[72px]">
 				<div className="max-w-[1100px] grid px-4 md:grid-cols-2 lg:grid-cols-3 gap-2 lg:px-0">
-      		{cards.length > 0 && cards.slice(skip, skip + 9).map(card => (
+      		{cards.length === 0 ? <Loading /> : cards.slice(skip, skip + 9).map(card => (
 						<PokemonCardSimple key={card.id} pokemon={card} money={money} />
 					))}
 				</div>

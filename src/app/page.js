@@ -1,10 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default async function Home() {
+export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center">
-      <h1 className='font-bold text-4xl my-10'>Pokepricer</h1>
+      <div className="flex items-center gap-4">
+        <Image src='/logo.png' className="bg-white rounded-full" height={50} width={50} alt='Pokepricer' />
+        <h1 className='font-bold text-4xl my-10'>Pokepricer</h1>
+      </div>
       <div className="mb-10 flex gap-5">
         <Link href='/search' className="text-zinc-800 border-blue-900 border-[1px] bg-sky-50 right-0 bottom-0 transition-all ease-in-out duration-300 hover:bg-blue-900 hover:text-sky-50 focus:outline-none font-medium rounded-lg text-sm px-4 py-2">
           Search by Card
@@ -24,7 +27,6 @@ export default async function Home() {
         <Link href='https://trollandtoad.com' target="_blank">
           <Image className="h-10 w-auto" src='/troll.png' height={200} width={200} alt="Troll and Toad" />
         </Link>
-
       </div>
     </div>
   )

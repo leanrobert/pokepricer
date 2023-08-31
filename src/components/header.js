@@ -11,7 +11,6 @@ const Header = () => {
     <header className='text-zinc-800 w-full max-w-6xl z-50'>
       <nav className='bg-sky-50 rounded-b-xl border-blue-900 border-t-transparent border-[1px] px-4 py-2.5 lg:px-6'>
         <div className='flex flex-wrap justify-between items-center mx-auto max-w-screen-xl'>
-          {/* Logo */}
           <Link href='/' className='flex items-center'>
             <Image src='/logo.png' alt='logo' width={200} height={200} className='bg-white rounded-full mr-3 h-6 w-6 sm:h-9 sm:w-9' />
             <span className='self-center text-xl font-semibold whitespace-nowrap'>Pokepricer</span>
@@ -28,14 +27,14 @@ const Header = () => {
           <div className={`${isMenuOpen ? '' : 'hidden'} justify-between items-center w-full lg:flex lg:w-auto`}>
             <ul className='flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0'>
               <li>
-                <Link href='/search' onClick={() => setIsMenuOpen(false)} className='block py-2 pr-4 pl-3 text-zinc-800 border-b border-stone-300 transition duration-300 ease-in-out hover:bg-blue-900 hover:text-sky-50 lg:hover:bg-transparent lg:hover:text-amber-500 lg:border-0 lg:hover:rounded-xl lg:p-0'>Search</Link>
+                <Link href='/search' onClick={() => setIsMenuOpen(false)} className='block py-2 pr-4 pl-3 text-zinc-800 border-b border-stone-300 transition duration-300 ease-in-out hover:bg-blue-900 hover:text-sky-50 lg:hover:bg-transparent lg:hover:text-amber-500 lg:border-0 lg:hover:rounded-xl lg:p-0'>Buscar</Link>
               </li>
               <li>
                 <Link href='/sets' onClick={() => setIsMenuOpen(false)} className='block py-2 pr-4 pl-3 text-zinc-800 border-b border-stone-300 transition duration-300 ease-in-out hover:bg-blue-900 hover:text-sky-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-amber-500 lg:hover:rounded-xl lg:p-0'>Sets</Link>
               </li>
               <li>
-                <Link href='/' onClick={() => setIsMenuOpen(false)} className='block py-2 pr-4 pl-3 text-zinc-800 border-b border-stone-300 transition duration-300 ease-in-out hover:bg-blue-900 hover:text-sky-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-amber-500 lg:hover:rounded-xl lg:p-0'>FAQ</Link>
-              </li> 
+                <Link href='/faq' onClick={() => setIsMenuOpen(false)} className='block py-2 pr-4 pl-3 text-zinc-800 border-b border-stone-300 transition duration-300 ease-in-out hover:bg-blue-900 hover:text-sky-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-amber-500 lg:hover:rounded-xl lg:p-0'>FAQ</Link>
+              </li>
             </ul>
           </div>
         </div>

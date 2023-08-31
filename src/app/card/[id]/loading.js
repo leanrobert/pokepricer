@@ -1,7 +1,14 @@
+import Skeleton from "@/components/skeleton";
+
 export default function Loading () {
   return (
-    <div className="flex justify-center items-center h-screen max-h-80">
-      <div className="animate-spin rounded-full h-20 w-20 border-t-2 border-b-2 border-amber-500"></div>
+    <div className="mt-6">
+      <Skeleton className='h-10 w-[300px] mb-4 mx-auto' />
+      <div className="flex flex-col justify-center items-center gap-4 lg:flex-row mb-4">
+        <Skeleton className="h-[280px] w-[200px]" />
+        <Skeleton className="h-[280px] w-[500px]" />
+        <Skeleton className="h-[280px] w-[500px]" />
+      </div>
     </div>
   )
 }

@@ -1,18 +1,16 @@
 'use client'
 
 import { getCards } from '@/utils/getCards'
-import { getDolarEuro } from '@/utils/getDolarEuro'
 import React, { useState } from 'react'
 
-const Form = ({ setCards, setPage, setMoney, setIsLoading }) => {
+const Form = ({ setCards, setLoading }) => {
   const [search, setSearch] = useState('')
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    setIsLoading(true)
 
-    const [res, money] = await Promise.all([getCards(search).catch(err => console.error(err)), getDolarEuro()])
-    setMoney(money)
+    setLoading(true)
+    const res = await getCards(search).catch(err => console.error(err))
 
     if (res) {
       setCards(res)
@@ -23,9 +21,8 @@ const Form = ({ setCards, setPage, setMoney, setIsLoading }) => {
       }, 3000)
     }
 
-    setPage(1)
+    setLoading(false)
     e.target.reset()
-    setIsLoading(false)
   }
 
   return (

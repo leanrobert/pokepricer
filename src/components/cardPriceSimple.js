@@ -1,7 +1,6 @@
-import { getTrollPrice } from '@/utils/getCards'
 import React from 'react'
 
-const PriceTable = ({ text, prices, money }) => {
+const PriceTable = ({ text, prices }) => {
   return (
     <div className='italic'>
       <p className='text-center'>{text}</p>

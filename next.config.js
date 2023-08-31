@@ -7,6 +7,9 @@ const nextConfig = {
       'static.cardmarket.com'
     ],
   },
+  experimental: {
+    serverActions: true,
+  },
 }
 
 module.exports = nextConfig
