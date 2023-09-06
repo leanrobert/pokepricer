@@ -1,0 +1,14 @@
+CREATE TABLE IF NOT EXISTS cardSet (
+    "id" TEXT,
+    "name" TEXT,
+    "series" TEXT,
+    "printedTotal" INT,
+    "total" INT,
+    "legalities_unlimited" TEXT,
+    "legalities_expanded" TEXT,
+    "ptcgoCode" TEXT,
+    "releaseDate" TIMESTAMP,
+    "updatedAt" TIMESTAMP,
+    "images_symbol" TEXT,
+    "images_logo" TEXT,
+)
