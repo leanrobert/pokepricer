@@ -1,0 +1,14 @@
+CREATE TABLE IF NOT EXISTS cardAttacks (
+  id TEXT,
+  attacks_name TEXT,
+  attacks_cost TEXT,
+  attacks_convertedEnergyCost INT,
+  attacks_damage TEXT,
+  attacks_text TEXT,
+  abilities_name TEXT,
+  abilities_text TEXT,
+  abilities_type TEXT,
+  pokemonCard_id TEXT,
+
+  FOREIGN KEY (pokemonCard_id) REFERENCES pokemonCard(id)
+)

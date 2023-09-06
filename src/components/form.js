@@ -3,14 +3,11 @@
 import { getCards } from '@/utils/getCards'
 import React, { useState } from 'react'
 
-const Form = ({ setCards, setLoading }) => {
-  const [search, setSearch] = useState('')
-
+const Form = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    setLoading(true)
-    const res = await getCards(search).catch(err => console.error(err))
+    /* const res = await getCards(search).catch(err => console.error(err))
 
     if (res) {
       setCards(res)
@@ -19,9 +16,8 @@ const Form = ({ setCards, setLoading }) => {
       setTimeout(() => {
         setCards([])
       }, 3000)
-    }
+    } */
 
-    setLoading(false)
     e.target.reset()
   }
 
@@ -35,7 +31,7 @@ const Form = ({ setCards, setLoading }) => {
               <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
             </svg>
           </div>
-          <input type="search" id="default-search" className="w-full p-2 pl-10 text-sm text-zinc-800 border border-blue-900 rounded-lg bg-sky-50 focus:ring-stone-300 focus:border-stone-300" value={search} onChange={e => setSearch(e.target.value)} placeholder="Search..." />
+          <input type="search" id="default-search" className="w-full p-2 pl-10 text-sm text-zinc-800 border border-blue-900 rounded-lg bg-sky-50 focus:ring-stone-300 focus:border-stone-300"  onChange={e => {}} placeholder="Search..." />
           <button type="submit" className="text-blue-900 border-blue-900 border-[1px] absolute bg-sky-50 right-0 bottom-0 transition-all ease-in-out duration-300 hover:bg-blue-900 hover:text-sky-50 focus:outline-none font-medium rounded-lg text-sm px-4 py-2" >Search</button>
         </div>
       </form>

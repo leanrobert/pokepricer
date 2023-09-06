@@ -1,14 +1,30 @@
+import { PrismaClient } from "@prisma/client"
 import axios from "axios"
 import { load } from "cheerio"
 
+const prisma = new PrismaClient()
+
 export const getCards = async (search) => {
-  const res = await fetch(`https://api.pokemontcg.io/v2/cards?q=name:${search.split(" ").join("*")}`, {
+  /* const res = await fetch(`https://api.pokemontcg.io/v2/cards?q=name:${search.split(" ").join("*")}`, {
     headers: {
       'X-Api-Key': process.env.NEXT_PUBLIC_POKEMONTCG_API_KEY
     }
   })
   const data = await res.json()
-  return data.data
+  return data.data */
+  const res = await prisma.pokemoncard.findMany({
+    where: {
+      name: {
+        contains: search
+      }
+    },
+    take: 100,
+    include: {
+      cardset: true
+    }
+  })
+
+  return res
 }
 
 export const getCard = async (id) => {
@@ -22,24 +38,26 @@ export const getCard = async (id) => {
 }
 
 export const getSets = async () => {
-  const res = await fetch('https://api.pokemontcg.io/v2/sets?orderBy=-releaseDate', {
-    headers: {
-      'X-Api-Key': process.env.NEXT_PUBLIC_POKEMONTCG_API_KEY
-    }
+  const res = await prisma.cardset.findMany({
+    orderBy: {
+      releasedate: 'desc'
+    },
   })
-  const data = await res.json()
-  return data.data
+
+  return res
 }
 
 export const getCardsBySet = async (setId) => {
-  const res = await fetch(`https://api.pokemontcg.io/v2/cards?q=set.id:${setId}`, {
-    headers: {
-      'X-Api-Key': process.env.NEXT_PUBLIC_POKEMONTCG_API_KEY
+  const res = await prisma.pokemoncard.findMany({
+    where: {
+      set_id: setId
+    },
+    include: {
+      cardset: true
     }
   })
 
-  const data = await res.json()
-  return data.data
+  return res
 }
 
 export const getTrollPrice = async (cardName, cardNum, setNum) => {
@@ -57,7 +75,7 @@ export const getTrollPrice = async (cardName, cardNum, setNum) => {
         filteredHref.push(href)
       }
     })
-  
+
     const url2 = `https://www.trollandtoad.com${filteredHref[0]}`
     const data2 = await axios.get(url2)
     const $2 = load(data2.data)

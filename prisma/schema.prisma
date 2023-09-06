@@ -1,0 +1,72 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model cardattacks {
+  id                          Int       @id @default(autoincrement())
+  attacks_name                String?
+  attacks_cost                String?
+  attacks_convertedenergycost Int?
+  attacks_damage              String?
+  attacks_text                String?
+  abilities_name              String?
+  abilities_text              String?
+  abilities_type              String?
+  pokemoncard_id              String?
+  pokemoncard                 pokemoncard? @relation(fields: [pokemoncard_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model cardset {
+  id                   String        @id
+  name                 String?
+  series               String?
+  printedtotal         Int?
+  total                Int?
+  legalities_unlimited String?
+  legalities_expanded  String?
+  ptcgocode            String?
+  releasedate          DateTime?     @db.Timestamp(6)
+  updatedat            DateTime?     @db.Timestamp(6)
+  images_symbol        String?
+  images_logo          String?
+  pokemoncard          pokemoncard[]
+}
+
+model pokemoncard {
+  id                     String        @id
+  name                   String?
+  supertype              String?
+  subtypes               String?
+  rules                  String?
+  set_id                 String?
+  number                 Int?
+  artist                 String?
+  rarity                 String?
+  legalities_unlimited   String?
+  images_small           String?
+  images_large           String?
+  legalities_expanded    String?
+  legalities_standard    String?
+  regulationmark         String?
+  level                  Int?
+  hp                     Int?
+  types                  String?
+  evolvesto              String?
+  weaknesses_type        String?
+  weaknesses_value       String?
+  retreatcost            String?
+  convertedretreatcost   Int?
+  flavortext             String?
+  nationalpokedexnumbers Int?
+  resistances_type       String?
+  resistances_value      Int?
+  evolvesfrom            String?
+  cardattacks            cardattacks[]
+  cardset                cardset?      @relation(fields: [set_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}

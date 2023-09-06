@@ -11,3 +11,8 @@ export const fetchCardsForSet = async (setId) => {
   const response = await axios.get(`${BASE_URL}/cards?q=set.id:${setId}`);
   return response.data.data;
 };
+
+export const fecthCardsForSetPage2 = async (setId) => {
+  const response = await axios.get(`${BASE_URL}/cards?q=set.id:${setId}&page=2`);
+  return response.data.data;
+}
