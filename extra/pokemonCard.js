@@ -1,4 +1,4 @@
-[
+export const pokemonCards = [
 	{
 			"id": "basep-1",
 			"name": "Pikachu",

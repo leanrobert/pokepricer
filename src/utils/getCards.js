@@ -1,28 +1,26 @@
 import { PrismaClient } from "@prisma/client"
 import axios from "axios"
 import { load } from "cheerio"
+import { pokemonCards } from "../../extra/pokemonCard"
 
 const prisma = new PrismaClient()
 
-export const getCards = async (search) => {
-  /* const res = await fetch(`https://api.pokemontcg.io/v2/cards?q=name:${search.split(" ").join("*")}`, {
-    headers: {
-      'X-Api-Key': process.env.NEXT_PUBLIC_POKEMONTCG_API_KEY
-    }
-  })
-  const data = await res.json()
-  return data.data */
-  const res = await prisma.pokemoncard.findMany({
+export const getCards = async (search, page=1, limit=10) => {
+  const skip = (Number(page) - 1) * Number(limit)
+
+  /* const res = await prisma.pokemoncard.findMany({
     where: {
       name: {
         contains: search
       }
     },
-    take: 100,
+    skip: skip,
+    take: limit,
     include: {
       cardset: true
     }
-  })
+  }) */
+  const res = await pokemonCards.slice(skip, Number(skip) + Number(limit))
 
   return res
 }
