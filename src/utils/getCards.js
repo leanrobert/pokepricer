@@ -1,38 +1,53 @@
-import { PrismaClient } from "@prisma/client"
 import axios from "axios"
 import { load } from "cheerio"
-import { pokemonCards } from "../../extra/pokemonCard"
+import prisma from "../../db/client"
 
-const prisma = new PrismaClient()
-
-export const getCards = async (search, page=1, limit=10) => {
-  const skip = (Number(page) - 1) * Number(limit)
-
-  /* const res = await prisma.pokemoncard.findMany({
-    where: {
-      name: {
-        contains: search
-      }
-    },
-    skip: skip,
-    take: limit,
+export const getCardsNoFilter = async (page) => {
+  const res = await prisma.pokemoncard.findMany({
     include: {
       cardset: true
+    },
+    skip: (Number(page) - 1) * 10,
+    take: 10
+  })
+
+  return res
+}
+
+
+export const getCards = async (search) => {
+  const res = await prisma.pokemoncard.findMany({
+    where: {
+      name: {
+        contains: search,
+        mode: 'insensitive'
+      }
+    },
+    include: {
+      cardset: true
+    },
+    orderBy: {
+      cardset: {
+        releasedate: 'desc'
+      }
     }
-  }) */
-  const res = await pokemonCards.slice(skip, Number(skip) + Number(limit))
+  })
 
   return res
 }
 
 export const getCard = async (id) => {
-  const res = await fetch(`https://api.pokemontcg.io/v2/cards/${id}`, {
-    headers: {
-      'X-Api-Key': process.env.NEXT_PUBLIC_POKEMONTCG_API_KEY
+  const res = await prisma.pokemoncard.findUnique({
+    where: {
+      id
+    },
+    include: {
+      cardattacks: true,
+      cardset: true
     }
   })
-  const data = await res.json()
-  return data.data
+
+  return res
 }
 
 export const getSets = async () => {
@@ -69,10 +84,11 @@ export const getTrollPrice = async (cardName, cardNum, setNum) => {
       const href = $(this).attr('href')
       if (href?.includes(`singles/${reeplaceName(cardName, '-')}-${cardNum}-${setNum}`)) {
         filteredHref.push(href)
-      } else if (href?.includes(`promos/${reeplaceName(cardName, '-')}-${cardNum.toLowerCase()}`)) {
+      } else if (href?.includes(`promos/${reeplaceName(cardName, '-')}-${cardNum}`)) {
         filteredHref.push(href)
       }
     })
+
 
     const url2 = `https://www.trollandtoad.com${filteredHref[0]}`
     const data2 = await axios.get(url2)
@@ -83,6 +99,7 @@ export const getTrollPrice = async (cardName, cardNum, setNum) => {
     const price = jsonObj.offers[0].price
     return price
   } catch (error) {
+    console.error(error);
     return 'Not Found'
   }
 }

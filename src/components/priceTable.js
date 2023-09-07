@@ -3,7 +3,7 @@ import { getTableValues } from '@/utils/getDolarEuro'
 
 const PriceTable = async ({ tcgplayer, cardmarket, money, card }) => {
 	const data = getTableValues(tcgplayer, cardmarket)
-	const troll = await getTrollPrice(card.name, card.number, card.set.printedTotal)
+	const troll = await getTrollPrice(card.name, card.number, card.cardset.printedtotal)
 
 	const trollArs = Number(troll * money.blue.value_sell).toFixed(2)
 
