@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center">
       <div className="flex items-center gap-4">
-        <Image src='/logo.png' className="bg-white rounded-full" height={50} width={50} alt='Pokepricer' />
+        <Image src='/logo.png' className="h-10 w-10 bg-white rounded-full" height={64} width={64} alt='Pokepricer' />
         <h1 className='font-bold text-4xl my-10'>Pokepricer</h1>
       </div>
       <div className="mb-10 flex gap-5">
@@ -18,14 +18,14 @@ export default function Home() {
       </div>
       <p className="text-center">Search for any card you want, and compare its price with other pages like</p>
       <div className="flex flex-wrap justify-center gap-5 my-10">
-        <Link href='https://tcgplayer.com' target="_blank">
-          <Image className="h-10 w-auto" src='/tcgplayer.png' height={200} width={200} alt='TCG Player' />
+        <Link href='https://tcgplayer.com' target="_blank" className="flex items-center">
+          <Image className="h-10 w-auto" src='/tcgplayer.png' height={150} width={400} alt='TCG Player' />
         </Link>
-        <Link href='https://cardmarket.com' target="_blank">
-          <Image className="h-14 w-auto" src='/cardmarket.png' height={200} width={200} alt='Cardmarket' />
+        <Link href='https://cardmarket.com' target="_blank" className="flex items-center">
+          <Image className="h-14 w-auto" src='/cardmarket.png' height={282} width={763} alt='Cardmarket' />
         </Link>
-        <Link href='https://trollandtoad.com' target="_blank">
-          <Image className="h-10 w-auto" src='/troll.png' height={200} width={200} alt="Troll and Toad" />
+        <Link href='https://trollandtoad.com' target="_blank" className="flex items-center">
+          <Image className="h-10 w-auto" src='/troll.png' height={100} width={500} alt="Troll and Toad" />
         </Link>
       </div>
     </div>
